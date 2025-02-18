@@ -1,0 +1,51 @@
+cbillhml =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = 10.125.9.141)(PORT = 1521))
+    (ADDRESS = (PROTOCOL = TCP)(HOST = 10.125.9.142)(PORT = 1521))
+    (ADDRESS = (PROTOCOL = TCP)(HOST = 10.125.9.143)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = cbillhml.celg.go)
+    )
+  )
+
+cbillprd =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = 10.201.49.243)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = cbillprd.celg.go)
+    )
+  )
+
+cbilldev = (DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = 10.201.49.243)(PORT = 1521)) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = cbilldev)))
+cbillhm2 = (DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = 10.201.49.243)(PORT = 1521)) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = cbillhm2)))
+
+no3612i1 = 
+ (DESCRIPTION = 
+    (ADDRESS_LIST = 
+          (ADDRESS = (PROTOCOL = TCP)
+          (HOST = awsdsno36)
+          (PORT = 1521)) 
+        ) (CONNECT_DATA = (SERVICE_NAME = no3612i1)) 
+)  
+
+# -- OCI - BM4 10.245.4.163    bm4edb01
+bm419i2 =
+(DESCRIPTION =
+    (ADDRESS_LIST = 
+          (ADDRESS = (PROTOCOL = TCP) 
+          (HOST = bm4edb01)
+          (PORT = 1526)))
+     (CONNECT_DATA = (SERVICE_NAME = bm419i2))
+)
+
+# -- OCI - Manager
+bm419i1 =
+(DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = bm4edb01)(PORT = 1525))
+    )
+         (CONNECT_DATA = (SERVICE_NAME = bm419i1)
+     )
+)

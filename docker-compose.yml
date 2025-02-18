@@ -1,0 +1,36 @@
+version: '3.8'
+networks:
+  bm4e-network:
+    driver: bridge
+
+services:
+  backend:
+    container_name: backend
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    networks:
+      - bm4e-network
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - TNS_ADMIN=/opt/oracle/instantclient/network/admin
+      - LD_LIBRARY_PATH=/opt/oracle/instantclient
+      - ORACLE_HOME=/opt/oracle/instantclient
+    extra_hosts:
+      - "dbcbillprd.equatorial.corp:10.201.49.243"
+    volumes:
+      - ./backend/tnsnames.ora:/opt/oracle/instantclient/network/admin/tnsnames.ora
+
+  frontend:
+    container_name: frontend
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    networks:
+      - bm4e-network
+    ports:
+      - "21180:80"
+    depends_on:
+      - backend
